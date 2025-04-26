@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -50,9 +51,23 @@ android {
 }
 
 dependencies {
+    //Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.4")
 
     //Compose ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
+    // RxJava3
+    implementation("io.reactivex.rxjava3:rxjava:3.1.8")
+
+    // RxJava3 - Schdeulers
+    implementation ("io.reactivex.rxjava3:rxandroid:3.0.2")
+
+    // Coroutines + RxJava3 integration
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-rx3:1.7.3")
+
+    // Retrofit + RxJava3 (Adapter)
+    implementation ("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
 
     //Network Calls
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

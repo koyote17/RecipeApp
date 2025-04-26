@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.recipeapp-mergeDebugResources-47:/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "com.example.recipeapp-mergeDebugResources-52:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Kacper\\.gradle\\caches\\transforms-4\\7cf9944857bab82720a98a274a817d14\\transformed\\core-1.15.0\\res\\values-pt-rPT\\values-pt-rPT.xml",

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.recipeapp-mergeDebugResources-47:/values-v21/values-v21.xml",
+            "outputFile": "com.example.recipeapp-mergeDebugResources-52:/values-v21/values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Kacper\\.gradle\\caches\\transforms-4\\7cf9944857bab82720a98a274a817d14\\transformed\\core-1.15.0\\res\\values-v21\\values-v21.xml",

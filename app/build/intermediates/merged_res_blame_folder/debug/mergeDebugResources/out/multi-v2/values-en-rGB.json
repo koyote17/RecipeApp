@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.recipeapp-mergeDebugResources-47:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.example.recipeapp-mergeDebugResources-52:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Kacper\\.gradle\\caches\\transforms-4\\177d7cdc37b5a8811fddbd9fef0dc609\\transformed\\ui-release\\res\\values-en-rGB\\values-en-rGB.xml",

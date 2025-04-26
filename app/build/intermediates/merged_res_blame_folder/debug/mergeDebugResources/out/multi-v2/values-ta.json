@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.recipeapp-mergeDebugResources-47:/values-ta/values-ta.xml",
+            "outputFile": "com.example.recipeapp-mergeDebugResources-52:/values-ta/values-ta.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Kacper\\.gradle\\caches\\transforms-4\\86b1bf36af0d3e6dc7c1a08b30e8c766\\transformed\\material3-release\\res\\values-ta\\values-ta.xml",

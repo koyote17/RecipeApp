@@ -5,6 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.rx3.await
+import java.util.concurrent.TimeUnit
 
 class MainViewModel : ViewModel() {
 
@@ -19,6 +21,11 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = recipeService.getCategories() //Fetch list of categories
+                    .retry(3)
+                    .timeout(3, TimeUnit.SECONDS)
+                    .await()
+
+
                 _categorieState.value = _categorieState.value.copy(
                     list = response.categories,
                     loading = false,
@@ -30,9 +37,7 @@ class MainViewModel : ViewModel() {
                     loading = false,
                     error = "Error fetching categories ${e.message}"
                 )
-
             }
-            
         }
     }
 
@@ -40,8 +45,5 @@ class MainViewModel : ViewModel() {
         val loading: Boolean = true,
         val list: List<Category> = emptyList(),
         val error: String? = null
-
-
         )
-
 }

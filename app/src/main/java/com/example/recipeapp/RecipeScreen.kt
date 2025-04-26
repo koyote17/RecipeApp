@@ -1,6 +1,7 @@
 package com.example.recipeapp
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
@@ -25,11 +26,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
+import com.example.recipeapp.ui.Screen
 
 @Composable
-fun RecipeScreen(modifier: Modifier = Modifier) {
-    val recipeViewModel: MainViewModel = viewModel()
-    val viewstate by recipeViewModel.categoriesState
+fun RecipeScreen(modifier: Modifier = Modifier,
+                 viewstate:MainViewModel.RecipeState,
+                 navigateToDetail: (Category) -> Unit) {
+
+
 
     Box(modifier = Modifier.fillMaxSize()) {
         when {
@@ -41,24 +45,32 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
                 Text("ERROR OCCURRED")
             }
 
-            else -> {  CategoryScreen(categories = viewstate.list)
+            else -> {  CategoryScreen(categories = viewstate.list, navigateToDetail)
             }
         }
     }
 }
     @Composable
-    fun CategoryScreen(categories: List<Category>) {
-        LazyVerticalGrid(columns = GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
+    fun CategoryScreen(categories: List<Category>,
+                       navigateToDetail: (Category) -> Unit) {
+        LazyVerticalGrid(columns = GridCells.Fixed(2),
+            modifier = Modifier.fillMaxSize()) {
             items(categories){
                 category ->
-                CategoryItem(category = category)
+                CategoryItem(category = category,
+                    navigateToDetail = navigateToDetail)
             }
         }
     }
 
     @Composable
-    fun CategoryItem(category: Category) {
-        Column(modifier = Modifier.padding(8.dp).fillMaxSize(),
+    fun CategoryItem(category: Category,
+                     navigateToDetail: (Category) -> Unit
+    ) {
+        Column(modifier = Modifier
+            .padding(8.dp)
+            .fillMaxSize()
+            .clickable { navigateToDetail(category) },
             horizontalAlignment = Alignment.CenterHorizontally) {
 
             Image(
@@ -70,8 +82,8 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
             Text(text = category.strCategory,
                 color = Color.Black,
                 style = TextStyle(fontWeight = FontWeight.Bold,
-                    fontSize = 16.sp,
-                    fontFamily = FontFamily.Cursive,
+                    fontSize = 24.sp,
+                    fontFamily = FontFamily.SansSerif,
                     shadow = Shadow(Color.LightGray, blurRadius = 1f)),
                 modifier = Modifier.padding(top = 4.dp)
             )
@@ -88,5 +100,7 @@ fun RecipeScreen(modifier: Modifier = Modifier) {
             strCategoryDescription = "Opis"
         )
 
-        CategoryItem(category = exampleCategory)
+        CategoryItem(category = exampleCategory,
+                    navigateToDetail = { }
+        )
 }
